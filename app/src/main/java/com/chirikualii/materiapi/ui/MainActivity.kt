@@ -31,7 +31,9 @@ class MainActivity : AppCompatActivity() {
         //inset data dummy
 //        adapter.addItem(DataDummy.listMovie)
         GlobalScope.launch(Dispatchers.IO) {
-            val response = ApiClient.service.getMovies()
+            val response = ApiClient.service.getMovies(
+                page = "8"
+            )
             Log.d(MainActivity::class.java.name,"telahDibuat: ${Gson().toJsonTree(response.body())}")
 
             val data = response.body()
